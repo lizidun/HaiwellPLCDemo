@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Device protocol="Modbus" io="COM,TCP,HWCLOUD" fullname="HaiwellPLC" fullname-zh-cn="海为PLC" fullname-zh-tw="海為PLC" fullname-en="HaiwellPLC" order="01">
+  <Group name="DevInfo">
+    <Param name="Name" value="Haiwell_PLC" value-zh-cn="海为PLC" value-zh-tw="海為PLC" value-en="Haiwell_PLC" />
+    <Param name="Memo" value="" value-zh-cn="" />
+    <Param name="DevType" value="PLC" readonly="true" />
+    <Param name="DevBrand" value="Haiwell"/>
+    <Param name="DevLine" value="All"/>
+    <Param name="DevModel" value="All"/>
+  </Group>
+  <Group name="ComParam">
+    <Param name="ComPort" value="COM1" />
+    <Param name="ComDevNumber" value="1" />
+    <Param name="ComProtocol" value="RTU_RS232" />
+    <Param name="ComBaudrate" value="19200" />
+    <Param name="ComDatabits" value="8" />
+    <Param name="ComParity" value="None" />
+    <Param name="ComStopbits" value="2" />
+    <Param name="ComHandshake" value="None" />
+  </Group>
+  <Group name="TcpParam">
+    <Param name="TcpProtocol" value="TCP" />
+    <Param name="TcpHost" value="" />
+    <Param name="TcpPort" value="" />
+  </Group>
+  <Group name="CollectInfo">
+    <Param name="Priority" value="0" />
+    <Param name="Interval" value="1000" />
+    <Param name="Timeout" value="500" />
+    <Param name="InitErrorCount" value="3" />
+    <Param name="TryIntervalSecond" value="1000" />
+    <Param name="MaxTryMinute" value="10" />
+    <Param name="ReConnWrite" value="0" />
+    <Param name="SingleBit32Address" value="16432-16463" />
+  </Group>
+  <AddressInfo>
+    <InputBit name="X" text="开关量输入" text-zh-cn="开关量输入" start="0" end="1023" text-zh-tw="開關量輸入" text-en="External input relay" />
+    <Bit name="Y" text="开关量输出" text-zh-cn="开关量输出" start="1536" end="2559" text-zh-tw="開關量輸出" text-en="External output relay" />
+    <Bit name="M" text="内部继电器" text-zh-cn="内部继电器" start="3072" end="15359" text-zh-tw="內部繼電器" text-en="Auxiliary relay" />
+    <InputBit name="T" text="计时器状态" text-zh-cn="计时器状态" start="15360" end="16383" text-zh-tw="計時器狀態" text-en="Timer" />
+    <InputBit name="C" text="计数器状态" text-zh-cn="计数器状态" start="16384" end="16639" text-zh-tw="計數器狀態" text-en="Counter" />
+    <Bit name="SM" text="系统状态位" text-zh-cn="系统状态位" start="16896" end="17111" text-zh-tw="系統狀態位" text-en="System status bit" />
+    <Bit name="S" text="步进继电器" text-zh-cn="步进继电器" start="28672" end="30719" text-zh-tw="步進繼電器" text-en="Step relay " />
+    <InputRegister name="AI" text="模拟量输入" text-zh-cn="模拟量输入" start="0" end="255" text-zh-tw="模擬量輸入" text-en="Analog input register" />
+    <Register name="AQ" text="模拟量输出" text-zh-cn="模拟量输出" start="256" end="511" text-zh-tw="模擬量輸出" text-en="Analog output register" />
+    <Register name="V" text="内部寄存器" text-zh-cn="内部寄存器" start="512" end="15359" text-zh-tw="內部寄存器" text-en="Internal data register" />
+    <Register name="TV" text="计时器当前值" text-zh-cn="计时器当前值" start="15360" end="16383" text-zh-tw="計時器當前值" text-en="Current value of timer" />
+    <Register name="CV" text="计数器当前值" text-zh-cn="计数器当前值" start="16384" end="16639" text-zh-tw="計數器當前值" text-en="Current value of counter" />
+    <InputRegister name="SV" text="系统寄存器" text-zh-cn="系统寄存器" start="17408" end="18308" text-zh-tw="系統寄存器" text-en="System register" />
+  </AddressInfo>
+</Device>
