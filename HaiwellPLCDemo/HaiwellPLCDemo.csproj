@@ -52,14 +52,8 @@
     <Compile Include="FrmBaseDocument.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmBaseDocument.Designer.cs" >
-		<DependentUpon>FrmBaseDocument.cs</DependentUpon>
-	</Compile>
-    <Compile Include="FrmComSetting.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmComSetting.Designer.cs">
-      <DependentUpon>FrmComSetting.cs</DependentUpon>
+    <Compile Include="FrmBaseDocument.Designer.cs">
+      <DependentUpon>FrmBaseDocument.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -71,24 +65,21 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmSerialPortConfig.Designer.cs">
-		<DependentUpon>FrmSerialPortConfig.cs</DependentUpon>
-	</Compile>
+      <DependentUpon>FrmSerialPortConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StExtend.cs" />
     <Compile Include="VariableInfo.cs" />
-    <EmbeddedResource Include="FrmBaseDocument.resx" >
-		<DependentUpon>FrmBaseDocument.cs</DependentUpon>
-	</EmbeddedResource>
-    <EmbeddedResource Include="FrmComSetting.resx">
-      <DependentUpon>FrmComSetting.cs</DependentUpon>
+    <EmbeddedResource Include="FrmBaseDocument.resx">
+      <DependentUpon>FrmBaseDocument.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSerialPortConfig.resx" >
-		<DependentUpon>FrmSerialPortConfig.cs</DependentUpon>
-	</EmbeddedResource>
+    <EmbeddedResource Include="FrmSerialPortConfig.resx">
+      <DependentUpon>FrmSerialPortConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
