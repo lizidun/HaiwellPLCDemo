@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Modbus.Data;
 using System.IO.Ports;
+using Spire.Xls;
 
 namespace HaiwellPLCDemo
 {
@@ -29,12 +30,12 @@ namespace HaiwellPLCDemo
         private void LoadVariableInfo()
         {
             List<VariableInfo> lst = VariableInfo.GetVariableInfos();
-            foreach(VariableInfo variableInfo in lst)
+            foreach (VariableInfo variableInfo in lst)
             {
                 if (variableInfo.IsBool)
                 {
                     this.cboBool.Items.Add(variableInfo);
-                    if(variableInfo.Name == "Y")
+                    if (variableInfo.Name == "Y")
                     {
                         this.cboBool.SelectedItem = variableInfo;
                     }
@@ -45,7 +46,7 @@ namespace HaiwellPLCDemo
                 if (!variableInfo.IsBool)
                 {
                     this.cboUShort.Items.Add(variableInfo);
-                    if(variableInfo.Name == "V")
+                    if (variableInfo.Name == "V")
                     {
                         this.cboUShort.SelectedItem = variableInfo;
                     }
@@ -56,9 +57,9 @@ namespace HaiwellPLCDemo
         private void btnComSetting_Click(object sender, EventArgs e)
         {
             FrmSerialPortConfig frmSerialPortConfig = new FrmSerialPortConfig();
-            if(frmSerialPortConfig.ShowDialog(this) == DialogResult.OK)
+            if (frmSerialPortConfig.ShowDialog(this) == DialogResult.OK)
             {
-                if(this.modbusMaster != null)
+                if (this.modbusMaster != null)
                 {
                     this.modbusMaster.Dispose();
                 }
@@ -72,7 +73,7 @@ namespace HaiwellPLCDemo
         private void cboBool_SelectedIndexChanged(object sender, EventArgs e)
         {
             VariableInfo variableInfo = this.cboBool.SelectedItem as VariableInfo;
-            if(variableInfo != null)
+            if (variableInfo != null)
             {
                 this.btnBOOLSetting.Enabled = variableInfo.AllowWrite;
                 this.nudBoolAddress.Maximum = variableInfo.End = variableInfo.Start;
@@ -91,7 +92,7 @@ namespace HaiwellPLCDemo
 
         private void btnBOOLSetting_Click(object sender, EventArgs e)
         {
-            if(this.modbusMaster != null)
+            if (this.modbusMaster != null)
             {
                 VariableInfo variableInfo = this.cboBool.SelectedItem as VariableInfo;
                 if (variableInfo != null)
@@ -103,7 +104,7 @@ namespace HaiwellPLCDemo
                         this.modbusMaster.WriteSingleCoil(this.ComConfigModel.SlaveAddress, address, value);
                         this.MsgBox("写入成功！");
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         this.MsgBox(ex.Message);
                     }
@@ -113,10 +114,10 @@ namespace HaiwellPLCDemo
 
         private void btnUShortSetting_Click(object sender, EventArgs e)
         {
-            if(this.modbusMaster != null)
+            if (this.modbusMaster != null)
             {
                 VariableInfo variableInfo = this.cboUShort.SelectedItem as VariableInfo;
-                if(variableInfo != null)
+                if (variableInfo != null)
                 {
                     try
                     {
@@ -124,12 +125,35 @@ namespace HaiwellPLCDemo
                         this.modbusMaster.WriteSingleRegister(this.ComConfigModel.SlaveAddress, address, (ushort)this.nudUShortValue.Value);
                         this.MsgBox("写入成功！");
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         this.MsgBox(ex.Message);
                     }
                 }
             }
+        }
+
+        private void button_exportReport_Click(object sender, EventArgs e)
+        {
+            //创建1个工作簿，相当于1个Excel文件　　　　　　　　
+
+            //Excel的文档结构是 Workbook->Worksheet（1个book可以包含多个sheet）
+            Workbook workbook = new Workbook();
+
+            //获取第一个sheet，进行操作，下标是从0开始
+            Worksheet sheet = workbook.Worksheets[0];
+            //当然你也可以自己添加1个命名的Worksheet到book中
+            workbook.Worksheets.Add("测试sheet");
+
+            //向A1单元格写入文字
+            sheet.Range["A1"].Text = "Hello,World!";
+
+            //将Excel文件保存到指定文件,还可以指定Excel版本
+            workbook.SaveToFile("Sample.xls", ExcelVersion.Version97to2003);
+
+            System.Diagnostics.Process.Start("Sample.xls");
+
+
         }
     }
 }

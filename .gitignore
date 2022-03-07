@@ -1,3 +1,5 @@
 /HaiwellPLCDemo/bin
 /HaiwellPLCDemo/obj
 /.vs
+packages/
+*.user

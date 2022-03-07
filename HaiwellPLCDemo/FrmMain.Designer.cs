@@ -45,6 +45,7 @@
             this.nudBoolAddress = new System.Windows.Forms.NumericUpDown();
             this.nudUShortAddress = new System.Windows.Forms.NumericUpDown();
             this.lblMemo = new System.Windows.Forms.Label();
+            this.button_exportReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudUShortValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBoolAddress)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudUShortAddress)).BeginInit();
@@ -52,9 +53,10 @@
             // 
             // btnBOOLSetting
             // 
-            this.btnBOOLSetting.Location = new System.Drawing.Point(434, 87);
+            this.btnBOOLSetting.Location = new System.Drawing.Point(579, 109);
+            this.btnBOOLSetting.Margin = new System.Windows.Forms.Padding(4);
             this.btnBOOLSetting.Name = "btnBOOLSetting";
-            this.btnBOOLSetting.Size = new System.Drawing.Size(75, 23);
+            this.btnBOOLSetting.Size = new System.Drawing.Size(100, 29);
             this.btnBOOLSetting.TabIndex = 0;
             this.btnBOOLSetting.Text = "写入";
             this.btnBOOLSetting.UseVisualStyleBackColor = true;
@@ -63,18 +65,20 @@
             // lblBOOL
             // 
             this.lblBOOL.AutoSize = true;
-            this.lblBOOL.Location = new System.Drawing.Point(42, 66);
+            this.lblBOOL.Location = new System.Drawing.Point(56, 82);
+            this.lblBOOL.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBOOL.Name = "lblBOOL";
-            this.lblBOOL.Size = new System.Drawing.Size(53, 12);
+            this.lblBOOL.Size = new System.Drawing.Size(67, 15);
             this.lblBOOL.TabIndex = 1;
             this.lblBOOL.Text = "开关型：";
             // 
             // lblUShort
             // 
             this.lblUShort.AutoSize = true;
-            this.lblUShort.Location = new System.Drawing.Point(42, 127);
+            this.lblUShort.Location = new System.Drawing.Point(56, 159);
+            this.lblUShort.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUShort.Name = "lblUShort";
-            this.lblUShort.Size = new System.Drawing.Size(53, 12);
+            this.lblUShort.Size = new System.Drawing.Size(67, 15);
             this.lblUShort.TabIndex = 2;
             this.lblUShort.Text = "模拟量：";
             // 
@@ -82,9 +86,10 @@
             // 
             this.cboBool.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBool.FormattingEnabled = true;
-            this.cboBool.Location = new System.Drawing.Point(42, 87);
+            this.cboBool.Location = new System.Drawing.Point(56, 109);
+            this.cboBool.Margin = new System.Windows.Forms.Padding(4);
             this.cboBool.Name = "cboBool";
-            this.cboBool.Size = new System.Drawing.Size(121, 20);
+            this.cboBool.Size = new System.Drawing.Size(160, 23);
             this.cboBool.TabIndex = 3;
             this.cboBool.SelectedIndexChanged += new System.EventHandler(this.cboBool_SelectedIndexChanged);
             // 
@@ -92,18 +97,20 @@
             // 
             this.cboUShort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboUShort.FormattingEnabled = true;
-            this.cboUShort.Location = new System.Drawing.Point(42, 154);
+            this.cboUShort.Location = new System.Drawing.Point(56, 192);
+            this.cboUShort.Margin = new System.Windows.Forms.Padding(4);
             this.cboUShort.Name = "cboUShort";
-            this.cboUShort.Size = new System.Drawing.Size(121, 20);
+            this.cboUShort.Size = new System.Drawing.Size(160, 23);
             this.cboUShort.TabIndex = 4;
             this.cboUShort.SelectedIndexChanged += new System.EventHandler(this.cboUShort_SelectedIndexChanged);
             // 
             // lblBoolValue
             // 
             this.lblBoolValue.AutoSize = true;
-            this.lblBoolValue.Location = new System.Drawing.Point(297, 67);
+            this.lblBoolValue.Location = new System.Drawing.Point(396, 84);
+            this.lblBoolValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBoolValue.Name = "lblBoolValue";
-            this.lblBoolValue.Size = new System.Drawing.Size(29, 12);
+            this.lblBoolValue.Size = new System.Drawing.Size(37, 15);
             this.lblBoolValue.TabIndex = 5;
             this.lblBoolValue.Text = "值：";
             // 
@@ -114,23 +121,26 @@
             this.cboBoolValue.Items.AddRange(new object[] {
             "True",
             "False"});
-            this.cboBoolValue.Location = new System.Drawing.Point(297, 88);
+            this.cboBoolValue.Location = new System.Drawing.Point(396, 110);
+            this.cboBoolValue.Margin = new System.Windows.Forms.Padding(4);
             this.cboBoolValue.Name = "cboBoolValue";
-            this.cboBoolValue.Size = new System.Drawing.Size(121, 20);
+            this.cboBoolValue.Size = new System.Drawing.Size(160, 23);
             this.cboBoolValue.TabIndex = 6;
             // 
             // lblUShortValue
             // 
             this.lblUShortValue.AutoSize = true;
-            this.lblUShortValue.Location = new System.Drawing.Point(297, 127);
+            this.lblUShortValue.Location = new System.Drawing.Point(396, 159);
+            this.lblUShortValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUShortValue.Name = "lblUShortValue";
-            this.lblUShortValue.Size = new System.Drawing.Size(29, 12);
+            this.lblUShortValue.Size = new System.Drawing.Size(37, 15);
             this.lblUShortValue.TabIndex = 7;
             this.lblUShortValue.Text = "值：";
             // 
             // nudUShortValue
             // 
-            this.nudUShortValue.Location = new System.Drawing.Point(297, 154);
+            this.nudUShortValue.Location = new System.Drawing.Point(396, 192);
+            this.nudUShortValue.Margin = new System.Windows.Forms.Padding(4);
             this.nudUShortValue.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -142,14 +152,15 @@
             0,
             -2147483648});
             this.nudUShortValue.Name = "nudUShortValue";
-            this.nudUShortValue.Size = new System.Drawing.Size(120, 21);
+            this.nudUShortValue.Size = new System.Drawing.Size(160, 25);
             this.nudUShortValue.TabIndex = 8;
             // 
             // btnUShortSetting
             // 
-            this.btnUShortSetting.Location = new System.Drawing.Point(434, 153);
+            this.btnUShortSetting.Location = new System.Drawing.Point(579, 191);
+            this.btnUShortSetting.Margin = new System.Windows.Forms.Padding(4);
             this.btnUShortSetting.Name = "btnUShortSetting";
-            this.btnUShortSetting.Size = new System.Drawing.Size(75, 23);
+            this.btnUShortSetting.Size = new System.Drawing.Size(100, 29);
             this.btnUShortSetting.TabIndex = 9;
             this.btnUShortSetting.Text = "写入";
             this.btnUShortSetting.UseVisualStyleBackColor = true;
@@ -157,9 +168,10 @@
             // 
             // btnComSetting
             // 
-            this.btnComSetting.Location = new System.Drawing.Point(42, 25);
+            this.btnComSetting.Location = new System.Drawing.Point(56, 31);
+            this.btnComSetting.Margin = new System.Windows.Forms.Padding(4);
             this.btnComSetting.Name = "btnComSetting";
-            this.btnComSetting.Size = new System.Drawing.Size(75, 23);
+            this.btnComSetting.Size = new System.Drawing.Size(100, 29);
             this.btnComSetting.TabIndex = 10;
             this.btnComSetting.Text = "串口设置";
             this.btnComSetting.UseVisualStyleBackColor = true;
@@ -168,59 +180,75 @@
             // lblBoolAddress
             // 
             this.lblBoolAddress.AutoSize = true;
-            this.lblBoolAddress.Location = new System.Drawing.Point(178, 66);
+            this.lblBoolAddress.Location = new System.Drawing.Point(237, 82);
+            this.lblBoolAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBoolAddress.Name = "lblBoolAddress";
-            this.lblBoolAddress.Size = new System.Drawing.Size(41, 12);
+            this.lblBoolAddress.Size = new System.Drawing.Size(52, 15);
             this.lblBoolAddress.TabIndex = 11;
             this.lblBoolAddress.Text = "地址：";
             // 
             // lblUShortAddress
             // 
             this.lblUShortAddress.AutoSize = true;
-            this.lblUShortAddress.Location = new System.Drawing.Point(178, 127);
+            this.lblUShortAddress.Location = new System.Drawing.Point(237, 159);
+            this.lblUShortAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUShortAddress.Name = "lblUShortAddress";
-            this.lblUShortAddress.Size = new System.Drawing.Size(41, 12);
+            this.lblUShortAddress.Size = new System.Drawing.Size(52, 15);
             this.lblUShortAddress.TabIndex = 12;
             this.lblUShortAddress.Text = "地址：";
             // 
             // nudBoolAddress
             // 
-            this.nudBoolAddress.Location = new System.Drawing.Point(178, 87);
+            this.nudBoolAddress.Location = new System.Drawing.Point(237, 109);
+            this.nudBoolAddress.Margin = new System.Windows.Forms.Padding(4);
             this.nudBoolAddress.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.nudBoolAddress.Name = "nudBoolAddress";
-            this.nudBoolAddress.Size = new System.Drawing.Size(104, 21);
+            this.nudBoolAddress.Size = new System.Drawing.Size(139, 25);
             this.nudBoolAddress.TabIndex = 13;
             // 
             // nudUShortAddress
             // 
-            this.nudUShortAddress.Location = new System.Drawing.Point(178, 154);
+            this.nudUShortAddress.Location = new System.Drawing.Point(237, 192);
+            this.nudUShortAddress.Margin = new System.Windows.Forms.Padding(4);
             this.nudUShortAddress.Maximum = new decimal(new int[] {
             65535,
             0,
             0,
             0});
             this.nudUShortAddress.Name = "nudUShortAddress";
-            this.nudUShortAddress.Size = new System.Drawing.Size(104, 21);
+            this.nudUShortAddress.Size = new System.Drawing.Size(139, 25);
             this.nudUShortAddress.TabIndex = 14;
             // 
             // lblMemo
             // 
             this.lblMemo.AutoSize = true;
-            this.lblMemo.Location = new System.Drawing.Point(127, 30);
+            this.lblMemo.Location = new System.Drawing.Point(169, 38);
+            this.lblMemo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMemo.Name = "lblMemo";
-            this.lblMemo.Size = new System.Drawing.Size(77, 12);
+            this.lblMemo.Size = new System.Drawing.Size(97, 15);
             this.lblMemo.TabIndex = 15;
             this.lblMemo.Text = "状态：未联机";
             // 
+            // button_exportReport
+            // 
+            this.button_exportReport.Location = new System.Drawing.Point(784, 110);
+            this.button_exportReport.Name = "button_exportReport";
+            this.button_exportReport.Size = new System.Drawing.Size(108, 28);
+            this.button_exportReport.TabIndex = 16;
+            this.button_exportReport.Text = "导出报表";
+            this.button_exportReport.UseVisualStyleBackColor = true;
+            this.button_exportReport.Click += new System.EventHandler(this.button_exportReport_Click);
+            // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(543, 187);
+            this.ClientSize = new System.Drawing.Size(1006, 721);
+            this.Controls.Add(this.button_exportReport);
             this.Controls.Add(this.lblMemo);
             this.Controls.Add(this.nudUShortAddress);
             this.Controls.Add(this.nudBoolAddress);
@@ -239,6 +267,7 @@
             this.Controls.Add(this.btnBOOLSetting);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PLC示例";
@@ -269,6 +298,7 @@
         private System.Windows.Forms.NumericUpDown nudBoolAddress;
         private System.Windows.Forms.NumericUpDown nudUShortAddress;
         private System.Windows.Forms.Label lblMemo;
+        private System.Windows.Forms.Button button_exportReport;
     }
 }
 
