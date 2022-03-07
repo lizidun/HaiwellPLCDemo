@@ -1,15 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Modbus.Data;
-using System.IO.Ports;
+﻿using LiveCharts;
+using LiveCharts.Defaults;
+using LiveCharts.Wpf;
 using Spire.Xls;
+using System;
+using System.Collections.Generic;
+using System.IO.Ports;
+using System.Linq;
+using System.Windows;
+using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace HaiwellPLCDemo
 {
@@ -26,7 +25,66 @@ namespace HaiwellPLCDemo
         {
             this.LoadVariableInfo();
             this.cboBoolValue.SelectedIndex = 0;
+
+            SeriesCollection = new SeriesCollection
+            {
+                new LineSeries
+                {
+                    Values = new ChartValues<ObservableValue>
+                    {
+                        new ObservableValue(3),
+                        new ObservableValue(5),
+                        new ObservableValue(2),
+                        new ObservableValue(7),
+                        new ObservableValue(7),
+                        new ObservableValue(4)
+                    },
+                    PointGeometrySize = 0,
+                    StrokeThickness = 4,
+                    Fill = Brushes.Transparent
+                },
+                new LineSeries
+                {
+                    Values = new ChartValues<ObservableValue>
+                    {
+                        new ObservableValue(3),
+                        new ObservableValue(4),
+                        new ObservableValue(6),
+                        new ObservableValue(8),
+                        new ObservableValue(7),
+                        new ObservableValue(5)
+                    },
+                    PointGeometrySize = 0,
+                    StrokeThickness = 4,
+                    Fill = Brushes.Transparent
+                }
+            };
+
+            cartesianChart1.Series = SeriesCollection;
+
+            dataGridView1.Rows.Add(new object[] { 1, 1, 1 });
+            dataGridView1.Rows.Add(new object[] { 2, 5, 7 });
+            dataGridView1.Rows.Add(new object[] { 3, 3, 9 });
+            dataGridView1.Rows.Add(new object[] { 4, 6, 3 });
+            dataGridView1.Rows.Add(new object[] { 5, 5, 8 });
+            dataGridView1.Rows.Add(new object[] { 6, 9, 1 });
         }
+
+        public SeriesCollection SeriesCollection { get; set; }
+
+        private void UpdateAllOnClick(object sender, RoutedEventArgs e)
+        {
+            var r = new Random();
+
+            foreach (var series in SeriesCollection)
+            {
+                foreach (var observable in series.Values.Cast<ObservableValue>())
+                {
+                    observable.Value = r.Next(0, 10);
+                }
+            }
+        }
+
         private void LoadVariableInfo()
         {
             List<VariableInfo> lst = VariableInfo.GetVariableInfos();
@@ -146,7 +204,17 @@ namespace HaiwellPLCDemo
             workbook.Worksheets.Add("测试sheet");
 
             //向A1单元格写入文字
-            sheet.Range["A1"].Text = "Hello,World!";
+            sheet.Range["A1"].Text = "测试序号";
+            sheet.Range["B1"].Text = "体积";
+            sheet.Range["C1"].Text = "压力";
+
+            for (int n = 0; n < dataGridView1.Rows.Count - 1; n++)
+            {
+                for (int m = 0; m < dataGridView1.Columns.Count; m++)
+                {
+                    sheet.Range[n + 2, m + 1].Text = dataGridView1.Rows[n].Cells[m].Value.ToString();
+                }
+            }
 
             //将Excel文件保存到指定文件,还可以指定Excel版本
             workbook.SaveToFile("Sample.xls", ExcelVersion.Version97to2003);
@@ -154,6 +222,52 @@ namespace HaiwellPLCDemo
             System.Diagnostics.Process.Start("Sample.xls");
 
 
+        }
+
+        private void button_random_Click(object sender, EventArgs e)
+        {
+            var r = new Random();
+
+            int i = 0;
+            foreach (var series in SeriesCollection)
+            {
+                int j = 0;
+                foreach (var observable in series.Values.Cast<ObservableValue>())
+                {
+                    observable.Value = r.Next(0, 10);
+                    //observable.Value = double.Parse(dataGridView1.Rows[j].Cells[i + 1].Value.ToString());
+                    j++;
+                }
+                i++;
+            }
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (SeriesCollection != null)
+                {
+                    var r = new Random();
+
+                    int i = 0;
+                    foreach (var series in SeriesCollection)
+                    {
+                        int j = 0;
+                        foreach (var observable in series.Values.Cast<ObservableValue>())
+                        {
+                            //observable.Value = r.Next(0, 10);
+                            observable.Value = double.Parse(dataGridView1.Rows[j].Cells[i + 1].Value.ToString());
+                            j++;
+                        }
+                        i++;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }
